@@ -1,0 +1,17 @@
+{
+  "name": "constructor-hangman",
+  "version": "1.0.0",
+  "description": "Hangman...  in a box (terminal)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hangman"
+  ],
+  "author": "xX yolo swaggins 420 Xx",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^5.2.0"
+  }
+}
