@@ -67,6 +67,12 @@ var index =  {
     }
 };
 
+var updateDisplay = function() {
+    index.showStats();
+    index.currentWord.displayWord();
+    guessLetter();
+};
+
 var startGame = function() {
     inquirer
     .prompt([
@@ -111,17 +117,13 @@ var guessLetter = function() {
             index.currentWord.checkGuess(response.guessingGame.toLowerCase());
             if (index.guessedThisRound.indexOf(response.guessingGame.toLowerCase()) !== -1) {
                 console.log("\nYou've already guessed the letter " + response.guessingGame + " this round!  Try again!");
-                index.showStats();
-                index.currentWord.displayWord();
-                guessLetter();
+                updateDisplay();
             }
             else if (index.checkGuess()) {
                 console.log("\nGreat guess!");
                 index.guessedThisRound.push(response.guessingGame.toLowerCase());
                 if (index.numOfBlanks > 0) {
-                    index.showStats();
-                    index.currentWord.displayWord();
-                    guessLetter();
+                    updateDisplay();
                 }
                 else {
                     console.log("");
@@ -144,17 +146,13 @@ var guessLetter = function() {
                 }
                 else {
                     index.guessedThisRound.push(response.guessingGame.toLowerCase());
-                    index.showStats();
-                    index.currentWord.displayWord();
-                    guessLetter();
+                    updateDisplay();
                 };
             };
         }
         else {
             console.log("\nInvalid input.  Try again!");
-            index.showStats();
-            index.currentWord.displayWord();
-            guessLetter();
+            updateDisplay();
         };
     });
 };
