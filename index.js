@@ -28,7 +28,7 @@ var index =  {
     losses: 0,
     guessedThisRound: [],
     pushGuess: function(letter) {
-        index.guessedThisRound.push(letter);
+        this.guessedThisRound.push(letter);
     },
     currentWordString: "",
     currentWord: {},
@@ -39,7 +39,7 @@ var index =  {
         this.currentWord = new Word(input);
     },
     showStats: function() {
-        console.log("\nGuesses remaining: " + index.guesses + "\nLetters you've guessed: " + index.guessedThisRound + "\n\n");
+        console.log("\nGuesses remaining: " + this.guesses + "\nLetters you've guessed: " + this.guessedThisRound + "\n\n");
     },
     numOfBlanks: 0,
     updateNumOfBlanks: function() {
@@ -64,13 +64,12 @@ var index =  {
             this.updateNumOfBlanks();
             return true;
         };
+    },
+    updateDisplay: function() {
+        this.showStats();
+        this.currentWord.displayWord();
+        guessLetter();
     }
-};
-
-var updateDisplay = function() {
-    index.showStats();
-    index.currentWord.displayWord();
-    guessLetter();
 };
 
 var startGame = function() {
@@ -117,13 +116,13 @@ var guessLetter = function() {
             index.currentWord.checkGuess(response.guessingGame.toLowerCase());
             if (index.guessedThisRound.indexOf(response.guessingGame.toLowerCase()) !== -1) {
                 console.log("\nYou've already guessed the letter " + response.guessingGame + " this round!  Try again!");
-                updateDisplay();
+                index.updateDisplay();
             }
             else if (index.checkGuess()) {
                 console.log("\nGreat guess!");
                 index.guessedThisRound.push(response.guessingGame.toLowerCase());
                 if (index.numOfBlanks > 0) {
-                    updateDisplay();
+                    index.updateDisplay();
                 }
                 else {
                     console.log("");
@@ -146,13 +145,13 @@ var guessLetter = function() {
                 }
                 else {
                     index.guessedThisRound.push(response.guessingGame.toLowerCase());
-                    updateDisplay();
+                    index.updateDisplay();
                 };
             };
         }
         else {
             console.log("\nInvalid input.  Try again!");
-            updateDisplay();
+            index.updateDisplay();
         };
     });
 };
