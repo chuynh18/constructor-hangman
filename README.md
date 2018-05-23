@@ -15,4 +15,4 @@ A few thoughts upon completing this
 -----------------------------------
 Construtors and objects confused me a little bit at the start, but after I finished `letter.js` and `word.js`, everything made a whole lot more sense.  At least until I made the decision to package a ton of things into an object in `index.js`.  In retrospect, that might have not been the best decision...  it made keeping track of my variable and method names a little bit tricky.
 
-The ugliest part of it all?  using `checkGuess` in both `word.js` and `index.js`.  Baaaaad idea.
+The ugliest part of it all?  using `checkGuess` in `letter.js`, `word.js`, AND `index.js`.  Baaaaad idea.

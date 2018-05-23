@@ -1,3 +1,5 @@
+"use strict";
+
 var Letter = function(letter) {
     this.letter = letter;
     this.isGuessed = false;

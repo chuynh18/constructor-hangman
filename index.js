@@ -1,3 +1,5 @@
+"use strict";
+
 var Word = require("./word.js");
 var inquirer = require("inquirer");
 
@@ -91,9 +93,9 @@ var startGame = function() {
         }
         else if (!response.confirm) {
             console.log("Either you slam with the best or you jam with the rest.  Looks like you're content jamming with the rest.");
-        }
-    })
-}
+        };
+    });
+};
 
 var guessLetter = function() {
     inquirer
@@ -124,7 +126,7 @@ var guessLetter = function() {
                 else {
                     console.log("");
                     index.currentWord.displayWord();
-                    console.log("\nCongratulations!  You won!")
+                    console.log("\nCongratulations!  You won!");
                     index.wins++;
                     console.log("Wins: " + index.wins +", losses: " + index.losses);
                     startGame();
