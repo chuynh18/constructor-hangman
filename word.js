@@ -20,6 +20,13 @@ var Word = function() {
         });
         console.log(wordInProgress);
     };
+    this.displayWordAnyway = () => {
+        var wordInProgress = "";
+        this.wordArray.forEach((element) => {
+            wordInProgress += element.letter + " ";
+        });
+        console.log(wordInProgress);
+    };
     this.checkGuess = (letter) => {
         this.wordArray.forEach(function(element) {
             element.checkGuess(letter);

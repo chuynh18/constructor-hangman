@@ -106,7 +106,7 @@ var guessLetter = function() {
     ])
     .then(function(response) {
         if (["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].indexOf(response.guessingGame.toLowerCase()) !== -1) {
-            index.currentWord.checkGuess(response.guessingGame);
+            index.currentWord.checkGuess(response.guessingGame.toLowerCase());
             if (index.guessedThisRound.indexOf(response.guessingGame.toLowerCase()) !== -1) {
                 console.log("\nYou've already guessed the letter " + response.guessingGame + " this round!  Try again!");
                 index.showStats();
@@ -122,6 +122,7 @@ var guessLetter = function() {
                     guessLetter();
                 }
                 else {
+                    console.log("");
                     index.currentWord.displayWord();
                     console.log("\nCongratulations!  You won!")
                     index.wins++;
@@ -134,8 +135,9 @@ var guessLetter = function() {
                 console.log("\nNope!  That's a miss!");
                 if (index.guesses === 0) {
                     index.losses++;
-                    console.log("Sorry, you have lost this one.");
-                    console.log("Wins: " + index.wins +", losses: " + index.losses);
+                    console.log("Sorry, you have lost this one.  The phrase you were trying to guess was...\n");
+                    index.currentWord.displayWordAnyway();
+                    console.log("\nWins: " + index.wins +", losses: " + index.losses);
                     startGame();
                 }
                 else {

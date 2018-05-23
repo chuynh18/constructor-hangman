@@ -13,7 +13,7 @@ var Letter = function(letter) {
         if (this.letter === " " || this.letter === "," || this.letter === "'" || this.letter === ".") {
             this.isGuessed = true;
         };
-        if (this.letter === x.toLowerCase() || this.letter === x.toUpperCase()) {
+        if (this.letter.toLowerCase() === x) {
             this.isGuessed = true;
         };
     };
