@@ -10,7 +10,7 @@ var Letter = function(letter) {
         };
     };
     this.checkGuess = function(x) {
-        if (this.letter === " " || this.letter === "," || this.letter === "'") {
+        if (this.letter === " " || this.letter === "," || this.letter === "'" || this.letter === ".") {
             this.isGuessed = true;
         };
         if (this.letter === x.toLowerCase() || this.letter === x.toUpperCase()) {

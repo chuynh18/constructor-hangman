@@ -1,7 +1,6 @@
 var Letter = require("./letter.js");
 
-var Word = function(word) {
-    this.word = word;
+var Word = function() {
     this.letter = Letter;
     this.wordSplitter = (input) => {
         input.split("").forEach((element) => {
@@ -28,9 +27,4 @@ var Word = function(word) {
     };
 };
 
-// var guessTheWord = new Word("Backstroke of the West");
-// guessTheWord.wordSplitter(guessTheWord.word);
-// guessTheWord.checkGuess("");
-// guessTheWord.displayWord();
-// guessTheWord.checkGuess("K");
-// guessTheWord.displayWord();
+module.exports = Word;
