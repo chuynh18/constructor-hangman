@@ -8,13 +8,26 @@ var index =  {
     dictionary: [
     "Star War The Third Gathers",
     "Backstroke of the West",
+    "Game time started",
+    "Our dichotomy opens the combat",
     "Mr. Speaker, we are for the big",
+    "Superior, they have escaped a day after the fair",
     "Batter to death them",
+    "First aid airship",
     "The nobody greets",
+    "Etc. , it is your idea that one of this rescue",
     "I am uninterested to politics",
+    "Is you saved I return to carry on the back me a dangerous",
     "Smelly boy",
+    "I beat the intelligence bureau the telephone",
+    "Put the gold with the D of two together very dangerous",
     "The geography that I stands compares you superior",
+    "I can be then academic association this kind of magic",
+    "The wish power are together with you at",
     "You are a sacrifice article that I cut up rough now",
+    "You are the governor of this city",
+    "Looking me am a civilization person",
+    "The knowledge of the dark of the study hopeless in the fire of water",
     "Do not send out the air tank why",
     "Do not want",
     "Did you heard of the tragedy that reach the man",
@@ -22,7 +35,13 @@ var index =  {
     "I would be aller strong and big than anyone",
     "I have seen the true facts of pure hero's ground",
     "To me heros is just bad person",
-    "Friend you are crazy"],
+    "Friend you are crazy",
+    "Reaching the west of reaches",
+    "Become the empire of the first choice",
+    "Talent extrication child",
+    "I must leave the country",
+    "D the superior is a bad person",
+    "To, all councilmans whole republic"],
     guesses: 9,
     wins: 0,
     losses: 0,
@@ -121,7 +140,7 @@ var guessLetter = function() {
                 index.updateDisplay();
             }
             else if (index.checkGuess()) {
-                console.log("\n ▄▄ •             ·▄▄▄▄  \n▐█ ▀ ▪▪     ▪     ██▪ ██ \n▄█ ▀█▄ ▄█▀▄  ▄█▀▄ ▐█· ▐█▌\n▐█▄▪▐█▐█▌.▐▌▐█▌.▐▌██. ██ \n·▀▀▀▀  ▀█▄▀▪ ▀█▄▀▪▀▀▀▀▀• ");
+                console.log("\n ▄▄ •   V E R Y   ·▄▄▄▄  \n▐█ ▀ ▪▪     ▪     ██▪ ██ \n▄█ ▀█▄ ▄█▀▄  ▄█▀▄ ▐█· ▐█▌\n▐█▄▪▐█▐█▌.▐▌▐█▌.▐▌██. ██ \n·▀▀▀▀  ▀█▄▀▪ ▀█▄▀▪▀▀▀▀▀• ");
                 console.log("\nGreat guess!");
                 index.guessedThisRound.push(response.guessingGame.toLowerCase());
                 if (index.numOfBlanks > 0) {
