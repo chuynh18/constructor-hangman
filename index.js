@@ -84,7 +84,7 @@ var startGame = function() {
     ])
     .then(function(response) {
         if (response.confirm) {
-            console.log("GREAT!\n");
+            console.log("\n ██████╗ ██████╗ ███████╗ █████╗ ████████╗██╗\n██╔════╝ ██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██║\n██║  ███╗██████╔╝█████╗  ███████║   ██║   ██║\n██║   ██║██╔══██╗██╔══╝  ██╔══██║   ██║   ╚═╝\n╚██████╔╝██║  ██║███████╗██║  ██║   ██║   ██╗\n ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝");
             index.guesses = 9;
             index.guessedThisRound = [];
             index.selectWord();
@@ -97,6 +97,7 @@ var startGame = function() {
             guessLetter();
         }
         else if (!response.confirm) {
+            console.log("\n.▄▄▄  ▄• ▄▌▪  ▄▄▄▄▄▄▄▄▄▄▄▄▄ .▄▄▄  \n▐▀•▀█ █▪██▌██ •██  •██  ▀▄.▀·▀▄ █·\n█▌·.█▌█▌▐█▌▐█· ▐█.▪ ▐█.▪▐▀▀▪▄▐▀▀▄ \n▐█▪▄█·▐█▄█▌▐█▌ ▐█▌· ▐█▌·▐█▄▄▌▐█•█▌\n·▀▀█.  ▀▀▀ ▀▀▀ ▀▀▀  ▀▀▀  ▀▀▀ .▀  ▀");
             console.log("Either you slam with the best or you jam with the rest.  Looks like you're content jamming with the rest.");
         };
     });
@@ -115,10 +116,12 @@ var guessLetter = function() {
         if (["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].indexOf(response.guessingGame.toLowerCase()) !== -1) {
             index.currentWord.checkGuess(response.guessingGame.toLowerCase());
             if (index.guessedThisRound.indexOf(response.guessingGame.toLowerCase()) !== -1) {
+                console.log("\n  ::::::::::: :::::::::  :::   :::              :::      ::::::::      :::     ::::::::::: ::::    ::: \n     :+:     :+:    :+: :+:   :+:            :+: :+:   :+:    :+:   :+: :+:       :+:     :+:+:   :+:  \n    +:+     +:+    +:+  +:+ +:+            +:+   +:+  +:+         +:+   +:+      +:+     :+:+:+  +:+   \n   +#+     +#++:++#:    +#++:            +#++:++#++: :#:        +#++:++#++:     +#+     +#+ +:+ +#+    \n  +#+     +#+    +#+    +#+             +#+     +#+ +#+   +#+# +#+     +#+     +#+     +#+  +#+#+#     \n #+#     #+#    #+#    #+#             #+#     #+# #+#    #+# #+#     #+#     #+#     #+#   #+#+#      \n###     ###    ###    ###             ###     ###  ########  ###     ### ########### ###    ####");
                 console.log("\nYou've already guessed the letter " + response.guessingGame + " this round!  Try again!");
                 index.updateDisplay();
             }
             else if (index.checkGuess()) {
+                console.log("\n ▄▄ •             ·▄▄▄▄  \n▐█ ▀ ▪▪     ▪     ██▪ ██ \n▄█ ▀█▄ ▄█▀▄  ▄█▀▄ ▐█· ▐█▌\n▐█▄▪▐█▐█▌.▐▌▐█▌.▐▌██. ██ \n·▀▀▀▀  ▀█▄▀▪ ▀█▄▀▪▀▀▀▀▀• ");
                 console.log("\nGreat guess!");
                 index.guessedThisRound.push(response.guessingGame.toLowerCase());
                 if (index.numOfBlanks > 0) {
@@ -127,6 +130,7 @@ var guessLetter = function() {
                 else {
                     console.log("");
                     index.currentWord.displayWord();
+                    console.log("\n ▄▀▀▄ ▀▄  ▄▀▀█▀▄    ▄▀▄▄▄▄   ▄▀▀█▄▄▄▄ \n█  █ █ █ █   █  █  █ █    ▌ ▐  ▄▀   ▐ \n▐  █  ▀█ ▐   █  ▐  ▐ █        █▄▄▄▄▄  \n  █   █      █       █        █    ▌  \n▄▀   █    ▄▀▀▀▀▀▄   ▄▀▄▄▄▄▀  ▄▀▄▄▄▄   \n█    ▐   █       █ █     ▐   █    ▐   \n▐        ▐       ▐ ▐         ▐    \n");
                     console.log("\nCongratulations!  You won!");
                     index.wins++;
                     console.log("Wins: " + index.wins +", losses: " + index.losses);
@@ -135,9 +139,10 @@ var guessLetter = function() {
             }
             else if (!index.checkGuess()) {
                 index.guesses--;
-                console.log("\nNope!  That's a miss!");
+                console.log("\n    ,·'´¨;.  '                         ,.-·.                  ,. -,                 ,. -,    \n    ;   ';:\           .·´¨';\        /    ;'\'          ,.·'´,    ,'\          ,.·'´,    ,'\   \n   ;     ';:'\      .'´     ;:'\      ;    ;:::\     ,·'´ .·´'´-·'´::::\'    ,·'´ .·´'´-·'´::::\' \n   ;   ,  '·:;  .·´,.´';  ,'::;'     ';    ;::::;'   ;    ';:::\::\::;:'    ;    ';:::\::\::;:'  \n  ;   ;'`.    ¨,.·´::;'  ;:::;       ;   ;::::;    \·.    `·;:'-·'´       \·.    `·;:'-·'´     \n  ;  ';::; \*´\:::::;  ,':::;‘      ';  ;'::::;      \:`·.   '`·,  '        \:`·.   '`·,  '     \n ';  ,'::;   \::\;:·';  ;:::; '      ;  ';:::';         `·:'`·,   \'           `·:'`·,   \'      \n ;  ';::;     '*´  ;',·':::;‘        ';  ;::::;'         ,.'-:;'  ,·\           ,.'-:;'  ,·\     \n \´¨\::;          \¨\::::;          \*´\:::;‘    ,·'´     ,.·´:::'\     ,·'´     ,.·´:::'\    \n  '\::\;            \:\;·'            '\::\:;'      \`*'´\::::::::;·'‘     \`*'´\::::::::;·'‘   \n    '´¨               ¨'                `*´‘        \::::\:;:·´           \::::\:;:·´        \n      Try again!                                     '`*'´‘                 '`*'´‘            ");
                 if (index.guesses === 0) {
                     index.losses++;
+                    console.log("\n   ▄   ████▄ █ ▄▄  ▄███▄   \n    █  █   █ █   █ █▀   ▀  \n██   █ █   █ █▀▀▀  ██▄▄    \n█ █  █ ▀████ █     █▄   ▄▀ \n█  █ █        █    ▀███▀   \n█   ██         ▀\n");
                     console.log("Sorry, you have lost this one.  The phrase you were trying to guess was...\n");
                     index.currentWord.displayWordAnyway();
                     console.log("\nWins: " + index.wins +", losses: " + index.losses);
@@ -150,6 +155,7 @@ var guessLetter = function() {
             };
         }
         else {
+            console.log("\n  ██████  ▄▄▄      ▓█████▄ \n▒██    ▒ ▒████▄    ▒██▀ ██▌\n░ ▓██▄   ▒██  ▀█▄  ░██   █▌\n  ▒   ██▒░██▄▄▄▄██ ░▓█▄   ▌\n▒██████▒▒ ▓█   ▓██▒░▒████▓ \n▒ ▒▓▒ ▒ ░ ▒▒   ▓▒█░ ▒▒▓  ▒ \n░ ░▒  ░ ░  ▒   ▒▒ ░ ░ ▒  ▒ \n░  ░  ░    ░   ▒    ░ ░  ░ \n      ░        ░  ░   ░    \n                    ░   ");
             console.log("\nInvalid input.  Try again!");
             index.updateDisplay();
         };
